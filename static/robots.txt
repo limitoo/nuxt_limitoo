@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /admin/
+Sitemap: https://chajing.wang/sitemap/sitemap.xml.gz
