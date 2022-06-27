@@ -15,7 +15,7 @@
               >
                 <a href="single.html">
                   <div class="rigthImg">
-                    <img class="imgsize" :src="item.img_url" alt="" />
+                    <img class="imgsize" :src="errorRNZimg(item)" alt="" />
                   </div>
                 </a>
               </div>
@@ -59,6 +59,23 @@ export default {
       lists: this.rightLists || [],
     }
   },
+  methods: {
+    errorRNZimg(item) {
+      const {img_url, source} = item
+      let url = img_url
+      const website = 'https://www.rnz.co.nz'
+      const img = 'https://rnz-ressh.cloudinary.com/'
+      if(source==='rnz') {
+        const str = url.includes(img)
+        const web = url.includes(website)
+        if(str && web) {
+          const num = website.length
+          url = url.slice(num)
+        }
+      }
+      return url
+    }
+  }
 }
 </script>
 

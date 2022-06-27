@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <main-lists :info="lists"></main-lists>
+    <main-lists :info="lists" :hots="hots"></main-lists>
   </section>
 </template>
 
@@ -8,8 +8,11 @@
 export default {
   async asyncData({ $axios }) {
     try {
-      const lists = await Promise.all([$axios.get('/api/v1/laster')])
-      return { lists: lists[0] }
+      const [lists, hots] = await Promise.all([
+        $axios.get('/api/v1/laster'),
+        $axios.get('/api/v1/hot'),
+        ])
+      return { lists, hots }
     } catch (e) {
       console.error(e)
     }
