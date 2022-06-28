@@ -1,36 +1,38 @@
 <template>
   <section class="main">
-    <div>
-      <b-img :src="item.src" fluid alt="Responsive image"></b-img>
-    </div>
-    <!-- 1. {{detail.src}} -->
-    2. {{item.src}}
-    <div v-for="(text, index) in item.content" :key="index">
-    {{text}}
-    </div>
+    <news-context :detail="text"></news-context>
   </section>
 </template>
 
 <script>
 export default {
   async asyncData({ $axios, params }) {
-		const id = params.id
-		if(id) {
-			try {
-				const [detail] = await Promise.all([
-					$axios.get(`/api/v1/${id}`)
-				])
-				console.error('first', detail.src)
-				return detail
-			} catch (e) {
-				console.error(e)
-			}
-		}
-  },
-  data() {
-    return {
-      item: this.detail || {}
+    const id = params.id
+    if (id) {
+      try {
+        const [text] = await Promise.all([$axios.get(`/api/v1/${id}`)])
+        return { text }
+      } catch (e) {
+        console.error(e)
+      }
     }
+  },
+  methods: {
+    errorRNZimg(item) {
+      const { src, source } = item
+      let url = src
+      const website = 'https://www.rnz.co.nz'
+      const img = 'https://rnz-ressh.cloudinary.com/'
+      if (source === 'rnz') {
+        const str = url.includes(img)
+        const web = url.includes(website)
+        if (str && web) {
+          const num = website.length
+          url = url.slice(num)
+        }
+      }
+      return url
+    },
   },
 }
 </script>

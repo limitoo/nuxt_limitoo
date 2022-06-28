@@ -11,7 +11,7 @@ export default {
       const [lists, hots] = await Promise.all([
         $axios.get('/api/v1/laster'),
         $axios.get('/api/v1/hot'),
-        ])
+      ])
       return { lists, hots }
     } catch (e) {
       console.error(e)

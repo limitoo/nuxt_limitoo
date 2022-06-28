@@ -54,7 +54,9 @@
                       </a>
                     </div>
                     <h4 class="post-title">
-                      <nuxt-link :to="'/news/' + item.id">{{ item.title }}</nuxt-link>
+                      <nuxt-link :to="'/news/' + item.id">{{
+                        item.title
+                      }}</nuxt-link>
                     </h4>
                     <div
                       class="entry-meta meta-1 font-small color-grey mt-15 mb-15"
@@ -66,7 +68,11 @@
                       <span class="time-reading"
                         ><i class="ti-timer"></i>10 mins read</span
                       >
-                      <span class="hit-count"><i class="ti-bolt"></i>{{Math.floor(Math.random()*(100-1)+1)}}k Views</span>
+                      <span class="hit-count"
+                        ><i class="ti-bolt"></i
+                        >{{ Math.floor(Math.random() * (100 - 1) + 1) }}k
+                        Views</span
+                      >
                     </div>
                     <p class="font-medium">
                       {{ item.description }}
@@ -106,38 +112,39 @@ export default {
     },
     hots: {
       type: Array,
-      default(){
+      default() {
         return []
-      }
-    }
+      },
+    },
   },
   data() {
     return {
       laster: this.info || [],
-      hotlists: this.hots || []
+      hotlists: this.hots || [],
     }
   },
   methods: {
-    gotoDetail(id){
+    gotoDetail(id) {
       this.$linkTo(`/news/${id}`)
     },
     errorRNZimg(item) {
-      const {img_url, source} = item
+      // eslint-disable-next-line camelcase
+      const { img_url, source } = item
+      // eslint-disable-next-line camelcase
       let url = img_url
       const website = 'https://www.rnz.co.nz'
       const img = 'https://rnz-ressh.cloudinary.com/'
-      if(source==='rnz') {
+      if (source === 'rnz') {
         const str = url.includes(img)
         const web = url.includes(website)
-        if(str && web) {
+        if (str && web) {
           const num = website.length
           url = url.slice(num)
         }
       }
       return url
-    }
+    },
   },
-
 }
 </script>
 
