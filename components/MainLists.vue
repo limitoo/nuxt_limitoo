@@ -1,5 +1,6 @@
 <template>
-  <div v-if="laster && laster.length">
+  <div v-if="laster && laster.length > 0">
+    <div class="height50"></div>
     <!--main content-->
     <div class="main_content sidebar_right pb-50">
       <div class="container">
@@ -77,13 +78,15 @@
                     <p class="font-medium">
                       {{ item.description }}
                     </p>
-                    <a
-                      class="readmore-btn font-small text-uppercase font-weight-ultra"
-                      href="single.html"
-                      >Read More<i
-                        class="ti-arrow-right ml-5 transition-02s"
-                      ></i
-                    ></a>
+                    <nuxt-link :to="'/news/' + item.id">
+                      <div
+                        class="readmore-btn font-small text-uppercase font-weight-ultra"
+                      >
+                        Read More<i
+                          class="ti-arrow-right ml-5 transition-02s"
+                        ></i>
+                      </div>
+                    </nuxt-link>
                   </div>
                 </div>
               </article>
@@ -104,22 +107,22 @@
 export default {
   name: 'MainLaster',
   props: {
-    info: {
-      type: Array,
+    items: {
+      type: Object,
       default() {
-        return []
+        return {}
       },
     },
-    hots: {
-      type: Array,
-      default() {
-        return []
-      },
-    },
+    // hots: {
+    //   type: Array,
+    //   default() {
+    //     return []
+    //   },
+    // },
   },
   data() {
     return {
-      laster: this.info || [],
+      laster: this.items.lists || [],
       hotlists: this.hots || [],
     }
   },
@@ -148,4 +151,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.height50 {
+  height: 50px;
+}
+</style>

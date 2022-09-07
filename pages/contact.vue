@@ -1,34 +1,21 @@
 <template>
   <section class="main">
     <main-head></main-head>
-    <main-lists :items="lists" :hots="hots"></main-lists>
+    <div>
+      <h1>Contact</h1>
+    </div>
   </section>
 </template>
-
 <script>
 export default {
-  async asyncData({ $axios }) {
-    try {
-      const [lists, hots] = await Promise.all([
-        $axios.get('/api/v1/indexlists'),
-        $axios.get('/api/v1/indexlists'),
-      ])
-      const total = lists.totalCount
-      return { lists, hots, total }
-    } catch (e) {
-      console.error(e)
-    }
-  },
   data() {
     return {
-      lists: [],
-      hots: [],
-      total: 0,
+      title: 'Contact Limitoo News',
     }
   },
   head() {
     return {
-      title: 'Limitoo News',
+      title: this.title,
       meta: [
         {
           hid: 'description',
@@ -42,10 +29,15 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 300)
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
   },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main-about {
+  height: 100%;
+  width: 100%;
+}
+</style>

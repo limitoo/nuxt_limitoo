@@ -3,22 +3,18 @@
     <div class="container">
       <div class="error">
         <div>
-          <img src="~/assets/images/logo.png" style="max-width: 100px" />
+          <img src="~/assets/imgs/logo.png" style="max-width: 100px" />
         </div>
         <div class="description">
           <span v-if="error.statusCode === 404">{{
-            error.message ? error.message : '页面没找到'
+            error.message ? error.message : '404'
           }}</span>
           <span v-if="error.statusCode === 403">{{
             error.message ? error.message : 'forbidden'
           }}</span>
-          <span v-else>{{ error.statusCode }} 页面异常</span>
+          <span v-else>{{ error.statusCode }} </span>
         </div>
-        <div class="report">
-          <nuxt-link to="/topic/create" target="_blank"
-            >点击这里反馈该问题>></nuxt-link
-          >
-        </div>
+        <div class="report"></div>
       </div>
     </div>
   </section>

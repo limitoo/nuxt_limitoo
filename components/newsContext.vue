@@ -711,7 +711,7 @@ export default {
   },
   data() {
     return {
-      text: this.detail || [],
+      text: '',
     }
   },
   methods: {

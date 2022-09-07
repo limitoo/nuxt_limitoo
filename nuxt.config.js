@@ -25,7 +25,8 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#FFB90F' },
+  // loading: { color: '#FFB90F', continuous: true, height: '5px' },
+  loading: '~/components/loading.vue',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -97,7 +98,7 @@ export default {
 
   proxy: {
     // '/api/': 'https://edms.site',
-    '/api/': 'http://127.0.0.1:6000',
+    '/api/': 'http://127.0.0.1:8800',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
