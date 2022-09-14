@@ -12,13 +12,11 @@ export const actions = {
   // async nuxtServerInit({ commit, dispatch }, { req, app }) {
   //   const config = await dispatch('config/loadConfig')
   //   app.head.title = config.siteTitle
-
   //   if (req && req.headers) {
   //     const ua = req.headers['user-agent']
   //     const isMobile = CommonHelper.isMobile(ua)
   //     commit('env/setIsMobile', isMobile)
   //   }
-
   //   await dispatch('user/getCurrentUser')
   // },
 }

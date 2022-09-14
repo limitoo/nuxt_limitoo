@@ -1,6 +1,7 @@
 <template>
   <section class="main">
-    <news-context :detail="list"></news-context>
+    <main-head></main-head>
+    <news-context :detail="list" :info="info"></news-context>
   </section>
 </template>
 
@@ -10,13 +11,13 @@ export default {
     const id = params.id
     if (id) {
       try {
-        const [text] = await Promise.all([$axios.get(`/api/v1/news/${id}`)])
-        const title = ''
-        const content = ''
-        const imgsrc = text.src
-        const list = text.lists
-        console.error('object', text)
-        return { list, title, content, imgsrc }
+        const [one, ret] = await Promise.all([
+          $axios.get(`/api/v1/indexOne/${id}`),
+          $axios.get(`/api/v1/news/${id}`),
+        ])
+        const list = ret.lists
+        const info = one.lists
+        return { list, info }
       } catch (e) {
         console.error(e)
       }
@@ -25,9 +26,7 @@ export default {
   data() {
     return {
       list: {},
-      title: '',
-      conternt: '',
-      imgsrc: '',
+      info: {},
     }
   },
   head() {
@@ -41,12 +40,6 @@ export default {
         },
       ],
     }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
-    })
   },
   methods: {
     errorRNZimg(item) {

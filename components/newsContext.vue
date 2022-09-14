@@ -2,58 +2,6 @@
   <div>
     <!--main content-->
     <main class="position-relative">
-      <!--Search Form-->
-      <div class="main-search-form transition-02s">
-        <div class="container">
-          <div class="pt-50 pb-50 main-search-form-cover">
-            <div class="row mb-20">
-              <div class="col-12">
-                <form
-                  action="#"
-                  method="get"
-                  class="search-form position-relative"
-                >
-                  <div class="search-form-icon"><i class="ti-search"></i></div>
-                  <label>
-                    <input
-                      type="text"
-                      class="search_field"
-                      placeholder="Enter keywords for search..."
-                      value=""
-                      name="s"
-                    />
-                  </label>
-                  <div class="search-switch">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="active">Articles</a>
-                      </li>
-                      <li class="list-inline-item"><a href="#">Authors</a></li>
-                    </ul>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 font-small suggested-area">
-                <p class="d-inline font-small suggested">
-                  <strong>Suggested:</strong>
-                </p>
-                <ul class="list-inline d-inline-block">
-                  <li class="list-inline-item"><a href="#">Covid-19</a></li>
-                  <li class="list-inline-item"><a href="#">Health</a></li>
-                  <li class="list-inline-item"><a href="#">WFH</a></li>
-                  <li class="list-inline-item"><a href="#">UltraNet</a></li>
-                  <li class="list-inline-item"><a href="#">Hospital</a></li>
-                  <li class="list-inline-item"><a href="#">Policies</a></li>
-                  <li class="list-inline-item"><a href="#">Energy</a></li>
-                  <li class="list-inline-item"><a href="#">Business</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <!--main content-->
       <div class="main_content sidebar_right pb-50 pt-50">
         <div class="container">
@@ -61,23 +9,19 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
               <div class="entry-header entry-header-1 mb-30">
                 <div class="entry-meta meta-0 font-small mb-15">
-                  <a href="category.html"
-                    ><span class="post-cat background2 color-white">{{
-                      detail.menu
-                    }}</span></a
-                  >
+                  <span class="post-cat background2 color-white">
+                    {{ info.menu }}
+                  </span>
                 </div>
-                <h1 class="post-title">
-                  {{ detail.title }}
-                </h1>
+                <h3 class="post-title">
+                  {{ info.title }}
+                </h3>
                 <div
                   class="entry-meta meta-1 font-small color-grey mt-15 mb-15"
                 >
-                  <span class="post-by"
-                    >By <a href="author.html">{{ detail.source }}</a></span
-                  >
+                  <span class="post-by">By {{ info.source }}</span>
                   <span class="post-on has-dot">{{
-                    detail.create_time | prettyDate
+                    info.create_time | prettyDate
                   }}</span>
                   <span class="time-reading has-dot">10 mins read</span>
                   <span class="hit-count"
@@ -85,9 +29,36 @@
                     {{ Math.floor(Math.random() * (100 - 1) + 1) }}k Views</span
                   >
                 </div>
-                <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+
+                <!-- end entry header
+                <figure class="single-thumnail">
+                  <div class="featured-slider-1 border-radius-5">
+                    <div class="featured-slider-1-items">
+                      <div class="slider-single">
+                        <img
+                          :src="errorRNZimg(info)"
+                          alt=""
+                          class="single-img"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="arrow-cover"></div>
+                  <div class="credit mt-15 font-small color-grey">
+                    <i class="ti-credit-card mr-5"></i>
+                    <span>Image credit: Behance</span>
+                  </div>
+                </figure>
+
+                <div class="single-excerpt">
+                  <p class="font-large">
+                    {{ info.description }}
+                  </p>
+                </div> -->
+
+                <!-- <div class="bt-1 border-color-1 mt-30 mb-30"></div> -->
                 <div class="single-social-share clearfix">
-                  <div
+                  <!-- <div
                     class="entry-meta meta-1 font-small color-grey float-left mt-10"
                   >
                     <span class="hit-count"
@@ -99,8 +70,8 @@
                     <span class="hit-count"
                       ><i class="ti-star mr-5"></i>8/10</span
                     >
-                  </div>
-                  <ul class="d-inline-block list-inline float-right">
+                  </div> -->
+                  <!-- <ul class="d-inline-block list-inline float-right">
                     <li class="list-inline-item">
                       <a
                         class="social-icon facebook-icon text-xs-center color-white"
@@ -133,39 +104,21 @@
                         ><i class="ti-instagram"></i
                       ></a>
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
-              <!--end entry header-->
-              <figure class="single-thumnail">
-                <div class="featured-slider-1 border-radius-5">
-                  <div class="featured-slider-1-items">
-                    <div class="slider-single">
-                      <img :src="errorRNZimg(detail)" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div class="arrow-cover"></div>
-                <div class="credit mt-15 font-small color-grey">
-                  <i class="ti-credit-card mr-5"></i
-                  ><span>Image credit: Behance</span>
-                </div>
-              </figure>
-              <div class="single-excerpt">
-                <p class="font-large">
-                  {{ detail.description }}
-                </p>
-              </div>
+
               <div class="entry-main-content">
                 <div
                   v-for="(item, index) in JSON.parse(detail.content)"
                   :key="index"
                 >
-                  {{ item }}
+                  <div v-html="showHTML(item)"></div>
+                  <div class="h1rem"></div>
                 </div>
               </div>
               <!--Comments-->
-              <div class="comments-area">
+              <!-- <div class="comments-area">
                 <h3 class="mb-30">03 Comments</h3>
                 <div class="comment-list">
                   <div class="single-comment justify-content-between d-flex">
@@ -254,7 +207,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--comment form-->
               <div class="comment-form">
                 <h3 class="mb-30">Leave a Reply</h3>
@@ -384,73 +337,6 @@
                       >Contact me<i class="ti-arrow-right ml-5"></i
                     ></a>
                   </p>
-                </div>
-                <!--Widget social-->
-                <div class="sidebar-widget widget-social-network mb-50">
-                  <div class="widget-header position-relative mb-20 pb-10">
-                    <h5 class="widget-title mb-10">Follow Us</h5>
-                    <div class="bt-1 border-color-1"></div>
-                  </div>
-                  <div class="social-network">
-                    <div class="follow-us d-flex align-items-center">
-                      <a
-                        class="follow-us-facebook clearfix mr-5 mb-10"
-                        href="#"
-                        target="_blank"
-                      >
-                        <div class="social-icon">
-                          <i class="ti-facebook mr-5 v-align-space"></i>
-                          <i class="ti-facebook mr-5 v-align-space nth-2"></i>
-                        </div>
-                        <span class="social-name">Facebook</span>
-                        <span class="social-count counter-number">65</span
-                        ><span class="social-count">K</span>
-                      </a>
-                      <a
-                        class="follow-us-twitter clearfix ml-5 mb-10"
-                        href="#"
-                        target="_blank"
-                      >
-                        <div class="social-icon">
-                          <i class="ti-twitter-alt mr-5 v-align-space"></i>
-                          <i
-                            class="ti-twitter-alt mr-5 v-align-space nth-2"
-                          ></i>
-                        </div>
-                        <span class="social-name">Twitter</span>
-                        <span class="social-count counter-number">75</span
-                        ><span class="social-count">K</span>
-                      </a>
-                    </div>
-                    <div class="follow-us d-flex align-items-center">
-                      <a
-                        class="follow-us-instagram clearfix mr-5"
-                        href="#"
-                        target="_blank"
-                      >
-                        <div class="social-icon">
-                          <i class="ti-instagram mr-5 v-align-space"></i>
-                          <i class="ti-instagram mr-5 v-align-space nth-2"></i>
-                        </div>
-                        <span class="social-name">Instagram</span>
-                        <span class="social-count counter-number">32</span
-                        ><span class="social-count">K</span>
-                      </a>
-                      <a
-                        class="follow-us-youtube clearfix ml-5"
-                        href="#"
-                        target="_blank"
-                      >
-                        <div class="social-icon">
-                          <i class="ti-youtube mr-5 v-align-space"></i>
-                          <i class="ti-youtube mr-5 v-align-space nth-2"></i>
-                        </div>
-                        <span class="social-name">Youtube</span>
-                        <span class="social-count counter-number">28</span
-                        ><span class="social-count">K</span>
-                      </a>
-                    </div>
-                  </div>
                 </div>
                 <!--Widget latest posts style 1-->
                 <div class="sidebar-widget widget_alitheme_lastpost mb-50">
@@ -708,6 +594,12 @@ export default {
         return {}
       },
     },
+    info: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
   },
   data() {
     return {
@@ -735,8 +627,31 @@ export default {
       }
       return url
     },
+    showHTML(htmlText) {
+      let ret = htmlText
+      const divImg = '<img src="https://www.rnz.co.nz'
+      const isImg = htmlText.includes(divImg)
+      if (isImg) {
+        const num = divImg.length
+        const url = htmlText.slice(num)
+        ret = `<img src="${url}`
+      }
+      return ret
+    },
   },
 }
 </script>
-
-<style scoped lang="scss"></style>
+<style lang="scss">
+.imgText {
+  margin-top: -0.5rem;
+  color: #a1a1a1;
+  font-size: 0.6rem;
+}
+.single-img {
+  width: 100%;
+  height: 100%;
+}
+.h1rem {
+  height: 1rem;
+}
+</style>

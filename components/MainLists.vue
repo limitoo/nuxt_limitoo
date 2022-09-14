@@ -82,9 +82,8 @@
                       <div
                         class="readmore-btn font-small text-uppercase font-weight-ultra"
                       >
-                        Read More<i
-                          class="ti-arrow-right ml-5 transition-02s"
-                        ></i>
+                        Read More
+                        <i class="ti-arrow-right ml-5 transition-02s"></i>
                       </div>
                     </nuxt-link>
                   </div>
@@ -146,6 +145,10 @@ export default {
         }
       }
       return url
+    },
+    saveDesc(item) {
+      console.error('object', item)
+      this.$router.push('/news/' + item.id)
     },
   },
 }
