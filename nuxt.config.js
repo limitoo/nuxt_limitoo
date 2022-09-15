@@ -123,6 +123,7 @@ export default {
       presets(env, [preset, options]) {
         return [['@nuxt/babel-preset-app', options]]
       },
+      compact: true,
     },
   },
 }
