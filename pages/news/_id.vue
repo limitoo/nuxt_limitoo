@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { createSEOMeta } from '../../utils/seo'
+import { createSEOMeta } from '~/utils/seo'
 export default {
   async asyncData({ $axios, params }) {
     const id = params.id
