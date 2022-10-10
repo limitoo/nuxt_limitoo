@@ -2,7 +2,6 @@
   <section class="main">
     <main-head></main-head>
     <news-context :detail="list" :info="info"></news-context>
-    {{ info }}
   </section>
 </template>
 

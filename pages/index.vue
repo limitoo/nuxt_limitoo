@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { createSEOMeta } from '~/utils/seo'
 export default {
   async asyncData({ $axios }) {
     try {
@@ -30,12 +31,13 @@ export default {
     return {
       title: 'The Limitoo News',
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
+        ...createSEOMeta({
+          title: `The Limitoo News`,
+          description:
             'The Limitoo news is global news, entertainment, and life website. It will extract hot news from professional news websites in various countries. Let you watch the news of various countries at any time. visit: https://limitoo.com',
-        },
+          image: '',
+          url: `https://limitoo.com`,
+        }),
       ],
     }
   },
