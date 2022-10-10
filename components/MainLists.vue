@@ -7,9 +7,9 @@
         <div class="row">
           <div class="col-lg-8 col-md-12 col-sm-12">
             <div class="loop-list loop-list-1">
-              <article v-for="item in laster" :key="item.id" class="row mb-50">
+              <article v-for="item in laster" :key="item.id" class="row mb-20">
                 <div class="col-md-6">
-                  <div class="post-thumb position-relative thumb-overlay mr-20">
+                  <div class="post-thumb position-relative thumb-overlay">
                     <div
                       class="img-hover-slide border-radius-5 position-relative"
                       :style="`background-image: url(${errorRNZimg(item)})`"
@@ -48,11 +48,12 @@
                 <div class="col-md-6 align-center-vertical">
                   <div class="post-content">
                     <div class="entry-meta meta-0 font-small mb-15">
-                      <a href="category.html">
-                        <span class="post-cat background2 color-white">
-                          {{ item.menu }}
-                        </span>
-                      </a>
+                      <span
+                        class="post-cat color-white"
+                        :class="item.menu | bgcolor"
+                      >
+                        {{ item.menu }}
+                      </span>
                     </div>
                     <h4 class="post-title">
                       <nuxt-link :to="'/news/' + item.id">{{
@@ -121,7 +122,7 @@ export default {
   },
   data() {
     return {
-      laster: this.items.lists || [],
+      laster: this.items.data.lists || [],
       hotlists: this.hots || [],
     }
   },

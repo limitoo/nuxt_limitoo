@@ -3,7 +3,14 @@
     <main-head></main-head>
     <div class="main-register">
       <div class="login">
-        <h1>Login</h1>
+        <h1>Register</h1>
+        <div class="form-group mb-20 mt-20">
+          <input
+            v-model="username"
+            class="input-text"
+            placeholder="Input user name"
+          />
+        </div>
         <div class="form-group mb-20 mt-20">
           <input
             v-model="email"
@@ -28,12 +35,12 @@
             class="btn btn-primary btn-block"
             @click="submit"
           >
-            Login
+            Register
           </button>
         </div>
-        <span class="mt-10">
-          You don't have an account?
-          <a href="/register" class="color2">Register now </a>
+        <span class="ml-2">
+          You have an account?
+          <a href="/login" class="color2"> Login here </a>
         </span>
       </div>
     </div>
@@ -43,9 +50,10 @@
 export default {
   data() {
     return {
-      title: 'Login - Limitoo News',
-      email: '',
+      title: 'Contact Limitoo News',
+      username: '',
       password: '',
+      email: '',
     }
   },
   head() {
@@ -63,15 +71,28 @@ export default {
   },
   methods: {
     submit() {
-      console.error('object: ', this.email, this.password)
-      console.error('object: ', this)
       this.$axios
-        .post('/api/v1/user/login', {
+        .post('/api/v1/register', {
           email: this.email,
+          username: this.username,
           password: this.password,
         })
         .then((result) => {
           console.error('object', result)
+          if (result.data.code === 0) {
+            this.$notify({
+              title: 'Success',
+              message: 'Register is success!',
+              type: 'success',
+            })
+          }
+          if (result.data.code === 500) {
+            this.$notify({
+              title: 'Warning',
+              message: 'You are already registered.',
+              type: 'warning',
+            })
+          }
         })
         .catch((err) => {
           return err
@@ -97,6 +118,6 @@ export default {
   padding: 20px;
   border: 1px #ccc solid;
   width: 400px;
-  height: 350px;
+  height: 380px;
 }
 </style>

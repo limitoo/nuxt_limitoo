@@ -37,7 +37,7 @@ function getSignInUrl(context) {
     // 客户端
     ref = context.route.path
   }
-  let signinUrl = '/user/signin'
+  let signinUrl = '/signin'
   if (ref) {
     signinUrl += '?ref=' + encodeURIComponent(ref)
   }

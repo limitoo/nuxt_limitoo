@@ -15,8 +15,8 @@ export default {
           $axios.get(`/api/v1/indexOne/${id}`),
           $axios.get(`/api/v1/news/${id}`),
         ])
-        const list = ret.lists
-        const info = one.lists
+        const list = ret.data.lists
+        const info = one.data.lists
         return { list, info }
       } catch (e) {
         console.error(e)

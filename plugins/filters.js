@@ -49,6 +49,29 @@ const filters = {
     }
     return filters.formatDate(timestamp, 'yyyy-MM-dd HH:mm:ss')
   },
+
+  bgcolor(tag) {
+    let num = 1
+    switch (tag) {
+      case 'world':
+        num = 1
+        break
+      case 'politics':
+        num = 2
+        break
+      case 'us':
+        num = 3
+        break
+      default:
+        num = 12
+    }
+    let bg = 'background12'
+    if (num % 12) {
+      bg = `background${num % 12}`
+    }
+
+    return bg
+  },
 }
 
 Object.keys(filters).forEach(function (key) {

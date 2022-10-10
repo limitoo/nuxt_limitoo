@@ -126,6 +126,10 @@ nav.tab-nav .nav-tabs{border:none;}
 .border-radius-10{border-radius:10px;overflow:hidden;}
 .border-radius-15{border-radius:15px;overflow:hidden;}
 
+.bl{border-bottom: 1px #ccc solid;
+  border-right: 1px #ccc solid;
+  border-top: 1px #ccc solid;}
+
 /*PADDING AND MARGIN DECLARE*/
 .mt-5{margin-top:5px!important}
 .mt-10{margin-top:10px!important}

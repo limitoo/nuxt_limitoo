@@ -97,8 +97,8 @@ export default {
   },
 
   proxy: {
-    '/api/': 'https://api.limitoo.com',
-    // '/api/': 'http://127.0.0.1:8800',
+    // '/api/': 'https://api.limitoo.com',
+    '/api/': 'http://127.0.0.1:9000',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

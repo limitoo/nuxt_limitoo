@@ -9,7 +9,10 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
               <div class="entry-header entry-header-1 mb-30">
                 <div class="entry-meta meta-0 font-small mb-15">
-                  <span class="post-cat background2 color-white">
+                  <span
+                    class="post-cat color-white"
+                    :class="info.menu | bgcolor"
+                  >
                     {{ info.menu }}
                   </span>
                 </div>
@@ -211,64 +214,58 @@
               <!--comment form-->
               <div class="comment-form">
                 <h3 class="mb-30">Leave a Reply</h3>
-                <form
-                  id="commentForm"
-                  class="form-contact comment_form"
-                  action="#"
-                >
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="form-group">
-                        <textarea
-                          id="comment"
-                          class="form-control w-100"
-                          name="comment"
-                          cols="30"
-                          rows="9"
-                          placeholder="Write Comment"
-                        ></textarea>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input
-                          id="name"
-                          class="form-control"
-                          name="name"
-                          type="text"
-                          placeholder="Name"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input
-                          id="email"
-                          class="form-control"
-                          name="email"
-                          type="email"
-                          placeholder="Email"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <div class="form-group">
-                        <input
-                          id="website"
-                          class="form-control"
-                          name="website"
-                          type="text"
-                          placeholder="Website"
-                        />
-                      </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <textarea
+                        id="comment"
+                        class="form-control w-100"
+                        name="comment"
+                        cols="30"
+                        rows="9"
+                        placeholder="Write Comment"
+                      ></textarea>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <button type="submit" class="button button-contactForm">
-                      Post Comment
-                    </button>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input
+                        id="name"
+                        class="form-control"
+                        name="name"
+                        type="text"
+                        placeholder="Name"
+                      />
+                    </div>
                   </div>
-                </form>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input
+                        id="email"
+                        class="form-control"
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input
+                        id="website"
+                        class="form-control"
+                        name="website"
+                        type="text"
+                        placeholder="Website"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="button button-contactForm">
+                    Post Comment
+                  </button>
+                </div>
               </div>
             </div>
             <!--col-lg-8-->
@@ -278,7 +275,7 @@
             >
               <div class="widget-area pl-30">
                 <!--Widget about-->
-                <div
+                <!-- <div
                   class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 background12 border-radius-5"
                 >
                   <h5 class="mb-20">
@@ -333,11 +330,10 @@
                   <p>
                     <a
                       class="readmore-btn font-small text-uppercase font-weight-ultra"
-                      href="contact.html"
                       >Contact me<i class="ti-arrow-right ml-5"></i
                     ></a>
                   </p>
-                </div>
+                </div> -->
                 <!--Widget latest posts style 1-->
                 <div class="sidebar-widget widget_alitheme_lastpost mb-50">
                   <div class="widget-header position-relative mb-20 pb-10">
@@ -349,8 +345,8 @@
                       <div
                         class="post-thumb d-flex border-radius-5 img-hover-scale mb-15"
                       >
-                        <a href="single.html">
-                          <img src="assets/imgs/news-1.jpg" alt="" />
+                        <a>
+                          <img src="~/assets/imgs/news-1.jpg" alt="" />
                         </a>
                       </div>
                       <div class="post-content media-body">
@@ -367,8 +363,8 @@
                       <div
                         class="post-thumb d-flex border-radius-5 img-hover-scale mb-15"
                       >
-                        <a href="single.html">
-                          <img src="assets/imgs/news-2.jpg" alt="" />
+                        <a>
+                          <img src="~/assets/imgs/news-2.jpg" alt="" />
                         </a>
                       </div>
                       <div class="post-content media-body">
@@ -387,8 +383,8 @@
                       <div
                         class="post-thumb d-flex border-radius-5 img-hover-scale mb-15"
                       >
-                        <a href="single.html">
-                          <img src="assets/imgs/news-3.jpg" alt="" />
+                        <a>
+                          <img src="~/assets/imgs/news-3.jpg" alt="" />
                         </a>
                       </div>
                       <div class="post-content media-body">
@@ -405,8 +401,8 @@
                       <div
                         class="post-thumb d-flex border-radius-5 img-hover-scale mb-15"
                       >
-                        <a href="single.html">
-                          <img src="assets/imgs/news-4.jpg" alt="" />
+                        <a>
+                          <img src="~/assets/imgs/news-4.jpg" alt="" />
                         </a>
                       </div>
                       <div class="post-content media-body">
@@ -425,8 +421,8 @@
                       <div
                         class="post-thumb d-flex border-radius-5 img-hover-scale mb-15"
                       >
-                        <a href="single.html">
-                          <img src="assets/imgs/news-5.jpg" alt="" />
+                        <a>
+                          <img src="~/assets/imgs/news-5.jpg" alt="" />
                         </a>
                       </div>
                       <div class="post-content media-body">
@@ -445,8 +441,8 @@
                       <div
                         class="post-thumb d-flex border-radius-5 img-hover-scale mb-15"
                       >
-                        <a href="single.html">
-                          <img src="assets/imgs/news-8.jpg" alt="" />
+                        <a>
+                          <img src="~/assets/imgs/news-8.jpg" alt="" />
                         </a>
                       </div>
                       <div class="post-content media-body">
@@ -471,24 +467,12 @@
                   </div>
                   <div class="post-block-list post-module-1 post-module-5">
                     <ul>
-                      <li class="cat-item cat-item-2">
-                        <a href="category.html">Beauty</a> (3)
-                      </li>
-                      <li class="cat-item cat-item-3">
-                        <a href="category.html">Book</a> (6)
-                      </li>
-                      <li class="cat-item cat-item-4">
-                        <a href="category.html">Design</a> (4)
-                      </li>
-                      <li class="cat-item cat-item-5">
-                        <a href="category.html">Fashion</a> (3)
-                      </li>
-                      <li class="cat-item cat-item-6">
-                        <a href="category.html">Lifestyle</a> (6)
-                      </li>
-                      <li class="cat-item cat-item-7">
-                        <a href="category.html">Travel</a> (2)
-                      </li>
+                      <li class="cat-item cat-item-2"><a>Beauty</a> (3)</li>
+                      <li class="cat-item cat-item-3"><a>Book</a> (6)</li>
+                      <li class="cat-item cat-item-4"><a>Design</a> (4)</li>
+                      <li class="cat-item cat-item-5"><a>Fashion</a> (3)</li>
+                      <li class="cat-item cat-item-6"><a>Lifestyle</a> (6)</li>
+                      <li class="cat-item cat-item-7"><a>Travel</a> (2)</li>
                     </ul>
                   </div>
                 </div>
@@ -505,9 +489,11 @@
                       >
                         <div
                           class="img-hover-slide border-radius-5 position-relative"
-                          style="background-image: url(assets/imgs/news-7.jpg)"
+                          style="
+                            background-image: url(~/assets/imgs/news-7.jpg);
+                          "
                         >
-                          <a class="img-link" href="single.html"></a>
+                          <a class="img-link"></a>
                           <span class="top-right-icon background8"
                             ><i class="mdi mdi-camera-alt"></i
                           ></span>
@@ -515,16 +501,14 @@
                       </div>
                       <div class="post-content">
                         <div class="entry-meta meta-0 font-small mb-15">
-                          <a href="category.html"
+                          <a
                             ><span class="post-cat background9 color-white"
                               >Beauty</span
                             ></a
                           >
                         </div>
                         <h4 class="post-title">
-                          <a href="single.html"
-                            >The litigants on the screen are not actors</a
-                          >
+                          <a>The litigants on the screen are not actors</a>
                         </h4>
                         <div
                           class="entry-meta meta-1 font-small color-grey mt-15 mb-15"
@@ -543,23 +527,23 @@
                       >
                         <div
                           class="img-hover-slide border-radius-5 position-relative"
-                          style="background-image: url(assets/imgs/news-9.jpg)"
+                          style="
+                            background-image: url(~/assets/imgs/news-9.jpg);
+                          "
                         >
-                          <a class="img-link" href="single.html"></a>
+                          <a class="img-link"></a>
                         </div>
                       </div>
                       <div class="post-content">
                         <div class="entry-meta meta-0 font-small mb-15">
-                          <a href="category.html"
+                          <a
                             ><span class="post-cat background3 color-white"
                               >Global</span
                             ></a
                           >
                         </div>
                         <h4 class="post-title">
-                          <a href="single.html"
-                            >Essential Qualities of Highly Successful Music</a
-                          >
+                          <a>Essential Qualities of Highly Successful Music</a>
                         </h4>
                         <div
                           class="entry-meta meta-1 font-small color-grey mt-15 mb-15"
@@ -607,9 +591,6 @@ export default {
     }
   },
   methods: {
-    context(text) {
-      return text
-    },
     errorRNZimg(item) {
       // eslint-disable-next-line camelcase
       const { img_url, source } = item
@@ -641,7 +622,8 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+
+<style scoped>
 .imgText {
   margin-top: -0.5rem;
   color: #a1a1a1;

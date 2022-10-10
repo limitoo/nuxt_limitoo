@@ -26,7 +26,7 @@ export default function ({ $axios, app }) {
     }
     const jsonResult = response.data
     if (Number(jsonResult.code) === 0) {
-      return Promise.resolve(jsonResult.data)
+      return Promise.resolve(jsonResult)
     } else {
       return Promise.reject(jsonResult)
     }
