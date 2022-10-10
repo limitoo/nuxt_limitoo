@@ -13,7 +13,7 @@ export default {
         $axios.get('/api/v1/indexlists'),
         $axios.get('/api/v1/indexlists'),
       ])
-      const total = lists.totalCount
+      const total = lists.data.totalCount
       return { lists, hots, total }
     } catch (e) {
       console.error(e)
@@ -28,7 +28,7 @@ export default {
   },
   head() {
     return {
-      title: 'Limitoo News',
+      title: 'The Limitoo News',
       meta: [
         {
           hid: 'description',
@@ -40,6 +40,7 @@ export default {
     }
   },
   mounted() {
+    console.error('object', this.lists)
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 100)

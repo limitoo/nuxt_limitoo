@@ -26,7 +26,9 @@
                   <span class="post-on has-dot">{{
                     info.create_time | prettyDate
                   }}</span>
-                  <span class="time-reading has-dot">10 mins read</span>
+                  <span class="time-reading has-dot">
+                    {{ Math.floor(Math.random() * (10 - 1) + 1) }} mins read
+                  </span>
                   <span class="hit-count"
                     ><i class="ti-bolt"></i>
                     {{ Math.floor(Math.random() * (100 - 1) + 1) }}k Views</span

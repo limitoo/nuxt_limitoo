@@ -2,10 +2,12 @@
   <section class="main">
     <main-head></main-head>
     <news-context :detail="list" :info="info"></news-context>
+    {{ info }}
   </section>
 </template>
 
 <script>
+import { createSEOMeta } from '../../utils/seo'
 export default {
   async asyncData({ $axios, params }) {
     const id = params.id
@@ -17,7 +19,7 @@ export default {
         ])
         const list = ret.data.lists
         const info = one.data.lists
-        return { list, info }
+        return { list, info, id }
       } catch (e) {
         console.error(e)
       }
@@ -27,19 +29,24 @@ export default {
     return {
       list: {},
       info: {},
+      id: 0,
     }
   },
   head() {
     return {
-      title: this.title,
+      title: `${this.info.title} - The Limitoo News`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.content,
-        },
+        ...createSEOMeta({
+          title: `${this.info.title} - The Limitoo News`,
+          description: this.info.description,
+          image: this.info.img_url,
+          url: `https://limitoo.com/news/${this.id}`,
+        }),
       ],
     }
+  },
+  mounted() {
+    console.error('object', this.list, this.info)
   },
   methods: {
     errorRNZimg(item) {

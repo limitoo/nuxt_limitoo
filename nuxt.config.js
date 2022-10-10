@@ -19,7 +19,13 @@ export default {
         content: '_top',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap',
+      },
+    ],
   },
 
   /*
@@ -84,6 +90,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     ['cookie-universal-nuxt', { alias: 'cookies' }],
+    '@nuxtjs/sitemap',
     // [
     //   '@nuxtjs/google-adsense',
     //   { id: 'ca-pub-5683711753850351', pageLevelAds: true },
